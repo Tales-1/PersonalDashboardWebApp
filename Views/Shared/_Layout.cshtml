@@ -10,23 +10,59 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PersonalDashboardAppProj</a>FSA
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-cosfntroller="Home" asp-action="Index">Home</a>
-                        </li>adasdasdasdasdasddasdsad
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>fasfasfasf
-                    </ul>
-                </div>
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+
+                    <!-- Header -->
+                    <li class="nav-header" style="padding-bottom:0;">
+                        <div class="dropdown profile-element">
+
+                            <a asp-controller="Dashboards" asp-action="Dashboard_1" asp-area="" class="m-t-lg"><img src="~/images/logos/rubixxhousing.png" /></a>
+                            <span class="clear">
+
+                                <span class="m-t-sm" style="display: flex;">
+                                    <strong class="font-bold m-l-xs versioncolor" style="margin-right: auto;">Version @Startup.VersionString <environment names="Development">[DEV] </environment><environment names="Test">[TEST] </environment></strong>
+
+                                </span>
+                            </span>
+                        </div>
+                        <div class="logo-element">
+                            <a><img style="width:50px" src="~/images/logos/Rubixx_Symbol_Colour.png" /></a>
+                        </div>
+                    </li>
+
+                    <!-- Dashboard -->
+                    <li>
+                        <a asp-controller="Dashboards" asp-action="Dashboard_1" asp-area=""><i class="fa fa-dashboard"></i><span class="nav-label">Dashboard</span></a>
+                    </li>
+
+                    <!-- Properties -->
+
+                    <li>
+                        <a href="@Url.Action("Index", "Property")"><i class="fa fa-home"></i><span class="nav-label">Properties</span></a>
+                    </li>
+
+                    <!-- Work Orders -->
+                    <li>
+                        <a onclick="HandleTotalMobile()"><i class="fa fa-list-alt"></i><span class="nav-label">Work Orders</span></a>
+                    </li>
+
+                    <!-- CRM -->
+                    <li>
+                        <a href="@Url.Action("Index", "CRM")"><i class="fa fa-exchange"></i><span class="nav-label">CRM</span></a>
+                    </li>
+                    <!-- People -->
+                    <li ">
+                        <a href="@Url.Action("Index", "People")"><i class="fa fa-users"></i><span class="nav-label">People</span></a>
+                    </li>
+
+                    <li>
+                        <a href="/account/logout">
+                            <i class="fa fa-sign-out"></i><span class="nav-label">Log Out</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
