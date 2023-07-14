@@ -9,41 +9,109 @@
     <link rel="stylesheet" href="~/PersonalDashboardAppProj.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PersonalDashboardAppProj</a>FSA
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-cosfntroller="Home" asp-action="Index">Home</a>
-                        </li>adasdasdasdasdasddasdsad
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>fasfasfasf
-                    </ul>
-                </div>
+    <nav class="navbar navbar-expand-md navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="sidebar d-flex align-items-center">
+                <ul class="nav flex-column w-100">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/Home">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/MyApps">My Apps</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Readings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top text-muted">
         <div class="container">
             &copy; 2023 - PersonalDashboardAppProj - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+<style>
+
+    body{
+        height: 100svh;
+        font-size:16px;
+        display:grid;
+        grid-template-areas:
+        "nav main main"
+        "nav foot foot";
+        grid-template-columns: 300px auto auto;
+        grid-template-rows: 1fr 30px;
+        overflow:hidden;
+    }
+
+    footer{
+        grid-area:foot;
+        width:100%;
+    }
+
+    nav{
+        grid-area:nav;
+        background:#36454f ;
+    }
+
+    .container{
+        grid-area:main
+    }
+
+
+
+    .sidebar {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-right: 1px solid #e9ecef;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width:300px;
+    }
+
+        .sidebar .nav-item {
+            border-bottom: 1px solid #e9ecef;
+            padding: 10px 0;
+        }
+
+        .sidebar .nav-link {
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background-color: #e9ecef;
+            color: #333;
+            transition: all 0.3s ease;
+            font-size:1.2rem;
+        }
+
+            .sidebar .nav-link:hover {
+                background-color: #333;
+                color: #fff;
+            }
+
+       
+</style>
